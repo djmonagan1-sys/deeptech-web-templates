@@ -21,7 +21,7 @@ window.SITE = {
   /* ---- Top navigation ---- */
   nav: [
     { label: "Technology",   href: "#technology" },
-    { label: "Instruments",  href: "#products" },
+    { label: "Product",      href: "#products" },
     { label: "Applications", href: "#applications" },
     { label: "Company",      href: "#company" },
   ],
@@ -38,7 +38,7 @@ window.SITE = {
       "fields with extraordinary precision, at room temperature, across " +
       "semiconductor failure analysis, GNSS-denied navigation, and the life sciences.",
     actions: [
-      { label: "See the instruments", href: "#products",   style: "primary" },
+      { label: "See the product", href: "#products",   style: "primary" },
       { label: "How it works",        href: "#technology", style: "ghost" },
     ],
     stats: [
@@ -101,56 +101,29 @@ window.SITE = {
     ],
   },
 
-  /* ---- Instruments — one per target market, all NV-diamond ---- */
+  /* ---- The product — one diamond quantum magnetometer ---- */
   products: {
     index: "02",
-    kicker: "The instruments",
-    title: "Three instruments. One diamond core.",
+    kicker: "The product",
+    title: "One instrument. Every hard magnetic measurement.",
     items: [
       {
-        tag: "Semiconductor",
-        name: "Iris",
-        desc:
-          "A wide-field quantum diamond microscope that images magnetic fields " +
-          "and current flow inside packaged chips — localizing faults without " +
-          "destroying the device.",
-        featured: false,
-        specs: [
-          { k: "Resolution",    v: "< 1 µm" },
-          { k: "Field of view", v: "4 × 4 mm" },
-          { k: "Modality",      v: "Current imaging" },
-          { k: "Operation",     v: "Room temp" },
-        ],
-        link: { label: "Request datasheet", href: "#contact" },
-      },
-      {
-        tag: "Navigation",
+        tag: "Diamond quantum magnetometer",
         name: "Vector",
         desc:
-          "A chip-scale magnetometer for magnetic-anomaly and inertial " +
-          "navigation that holds course when GNSS is jammed, spoofed, or " +
-          "simply unavailable.",
+          "Vector is a 3-axis diamond quantum magnetometer built on " +
+          "nitrogen-vacancy centers. One rugged, room-temperature instrument — " +
+          "sensitive enough to image current inside a microchip, stable enough " +
+          "to navigate without GPS, and clean enough to read the magnetic " +
+          "signature of living cells.",
         featured: true,
         specs: [
-          { k: "Sensitivity", v: "10 pT/√Hz" },
-          { k: "Bandwidth",   v: "DC – 2 kHz" },
-          { k: "GPS-free",    v: "Yes" },
-          { k: "Form factor", v: "Strapdown" },
-        ],
-        link: { label: "Request datasheet", href: "#contact" },
-      },
-      {
-        tag: "Biotech",
-        name: "Helix",
-        desc:
-          "Optically detected NV-NMR and biosensing — label-free magnetic " +
-          "readout of cells and biomolecules from picoliter samples.",
-        featured: false,
-        specs: [
-          { k: "Sample volume", v: "10 pL" },
-          { k: "Detection",     v: "Optical" },
-          { k: "Targets",       v: "Cells & biomolecules" },
-          { k: "Recalibration", v: "Never" },
+          { k: "Sensitivity",        v: "1 pT/√Hz" },
+          { k: "Configuration",      v: "3-axis vector" },
+          { k: "Bandwidth",          v: "DC – 2 kHz" },
+          { k: "Imaging resolution", v: "< 1 µm" },
+          { k: "Operation",          v: "Room temperature" },
+          { k: "Reference",          v: "Atomic — drift-free" },
         ],
         link: { label: "Request datasheet", href: "#contact" },
       },
@@ -244,11 +217,11 @@ window.SITE = {
     tagline: "Quantum sensing, powered by diamond.",
     columns: [
       {
-        title: "Instruments",
+        title: "Product",
         links: [
-          { label: "Iris — Semiconductor", href: "#products" },
-          { label: "Vector — Navigation",  href: "#products" },
-          { label: "Helix — Biotech",      href: "#products" },
+          { label: "Vector magnetometer", href: "#products" },
+          { label: "Specifications",      href: "#products" },
+          { label: "Applications",        href: "#applications" },
         ],
       },
       {

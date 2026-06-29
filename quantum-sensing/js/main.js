@@ -132,11 +132,13 @@
       productsGrid.appendChild(
         el(
           '<article class="product reveal' + (p.featured ? " product--featured" : "") + '">' +
-            '<div class="product__tag">' + esc(p.tag) + "</div>" +
-            "<h3>" + esc(p.name) + "</h3>" +
-            '<p class="product__desc">' + esc(p.desc) + "</p>" +
+            '<div class="product__main">' +
+              '<div class="product__tag">' + esc(p.tag) + "</div>" +
+              "<h3>" + esc(p.name) + "</h3>" +
+              '<p class="product__desc">' + esc(p.desc) + "</p>" +
+              '<a class="product__link" href="' + esc(p.link.href) + '">' + esc(p.link.label) + "</a>" +
+            "</div>" +
             '<ul class="spec">' + specs + "</ul>" +
-            '<a class="product__link" href="' + esc(p.link.href) + '">' + esc(p.link.label) + "</a>" +
           "</article>"
         )
       );
