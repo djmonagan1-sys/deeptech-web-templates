@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#0f0a1c"/>
-  <line x1="16" y1="5" x2="6" y2="11" stroke="#efeafc" stroke-width="1.2"/>
-  <line x1="16" y1="5" x2="26" y2="11" stroke="#efeafc" stroke-width="1.2"/>
-  <line x1="6" y1="11" x2="16" y2="16" stroke="#efeafc" stroke-width="1.2"/>
-  <line x1="26" y1="11" x2="16" y2="16" stroke="#efeafc" stroke-width="1.2"/>
-  <line x1="16" y1="27" x2="16" y2="16" stroke="#efeafc" stroke-width="1.2"/>
-  <circle cx="16" cy="5" r="2.4" fill="#0f0a1c" stroke="#efeafc" stroke-width="1.3"/>
-  <circle cx="6" cy="11" r="2.4" fill="#0f0a1c" stroke="#efeafc" stroke-width="1.3"/>
-  <circle cx="26" cy="11" r="2.4" fill="#0f0a1c" stroke="#efeafc" stroke-width="1.3"/>
-  <circle cx="16" cy="16" r="3" fill="#a974ff"/>
+  <rect width="32" height="32" fill="#06080c"/>
+  <line x1="16" y1="5" x2="6" y2="11" stroke="#eaf2fb" stroke-width="1.2"/>
+  <line x1="16" y1="5" x2="26" y2="11" stroke="#eaf2fb" stroke-width="1.2"/>
+  <line x1="6" y1="11" x2="16" y2="16" stroke="#eaf2fb" stroke-width="1.2"/>
+  <line x1="26" y1="11" x2="16" y2="16" stroke="#eaf2fb" stroke-width="1.2"/>
+  <line x1="16" y1="27" x2="16" y2="16" stroke="#eaf2fb" stroke-width="1.2"/>
+  <circle cx="16" cy="5" r="2.4" fill="#06080c" stroke="#eaf2fb" stroke-width="1.3"/>
+  <circle cx="6" cy="11" r="2.4" fill="#06080c" stroke="#eaf2fb" stroke-width="1.3"/>
+  <circle cx="26" cy="11" r="2.4" fill="#06080c" stroke="#eaf2fb" stroke-width="1.3"/>
+  <circle cx="16" cy="16" r="3" fill="#76c7ff"/>
 </svg>

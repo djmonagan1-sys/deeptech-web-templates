@@ -1,6 +1,6 @@
 /* =========================================================================
    DIAGNOSTIQS — deeptech web template
-   Aesthetic: dark editorial. Deep violet-black, light text, a bold purple
+   Aesthetic: dark editorial. Near-black, light text, a bold diamond-blue
    accent, fine grain, editorial serif headlines, broken (asymmetric) grids.
 
    To re-theme: edit the tokens in :root. To edit WORDS, see content.js.
@@ -8,21 +8,22 @@
 
 :root {
   /* —— Surfaces (background → raised) —— */
-  --bg:    #0f0a1c;   /* deep violet-black base */
-  --bg-2:  #160f29;   /* alternating sections */
-  --panel: #1c1438;   /* cards / raised surfaces */
+  --bg:    #06080c;   /* near-black, cool */
+  --bg-2:  #0b0e14;   /* alternating sections */
+  --panel: #10151e;   /* cards / raised surfaces */
 
   /* —— Text —— */
-  --text:      #efeafc;   /* near-white lavender */
-  --text-soft: #b8aed8;
-  --text-mute: #8077a0;
+  --text:      #eaf2fb;   /* cool near-white */
+  --text-soft: #aab8c8;
+  --text-mute: #6e7c8d;
 
-  --line:        rgba(255, 255, 255, 0.13);
-  --line-strong: rgba(255, 255, 255, 0.32);
+  --line:        rgba(255, 255, 255, 0.12);
+  --line-strong: rgba(255, 255, 255, 0.30);
 
-  /* —— One bold accent —— */
-  --accent:      #a974ff;   /* bright violet */
-  --accent-deep: #8b4ff5;
+  /* —— One bold accent + the dark ink used on top of it —— */
+  --accent:      #76c7ff;   /* diamond ice-blue */
+  --accent-deep: #49a9f2;
+  --on-accent:   #06131f;   /* text/lines drawn on accent fills */
 
   --notch: 9px;
   --radius: 0px;
@@ -92,7 +93,7 @@ img, svg { display: block; max-width: 100%; }
   clip-path: polygon(0 0, calc(100% - var(--notch)) 0, 100% var(--notch), 100% 100%, 0 100%);
 }
 .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.btn--primary { background: var(--accent); color: #18102e; }
+.btn--primary { background: var(--accent); color: var(--on-accent); }
 .btn--primary:hover { background: var(--text); color: var(--bg); transform: translateY(-2px); }
 .btn--ghost { background: transparent; border-color: var(--line-strong); color: var(--text); }
 .btn--ghost:hover { background: var(--text); color: var(--bg); border-color: var(--text); transform: translateY(-2px); }
@@ -100,7 +101,7 @@ img, svg { display: block; max-width: 100%; }
 /* ----------------- Nav ----------------- */
 .nav { position: fixed; inset: 0 0 auto 0; z-index: 100; border-bottom: 1px solid transparent; transition: background var(--transition), border-color var(--transition); }
 .nav::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; background: var(--accent); }
-.nav.is-scrolled { background: rgba(15, 10, 28, 0.86); backdrop-filter: blur(12px); border-bottom-color: var(--line); }
+.nav.is-scrolled { background: rgba(6, 8, 12, 0.86); backdrop-filter: blur(12px); border-bottom-color: var(--line); }
 .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
 
 .brand { display: inline-flex; align-items: center; gap: 12px; }
@@ -201,13 +202,13 @@ img, svg { display: block; max-width: 100%; }
 .products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; }
 .product { background: var(--panel); border: 1px solid var(--line); border-top: 3px solid var(--text); padding: 30px 28px; transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition); }
 .product:hover { transform: translateY(-4px); box-shadow: 6px 6px 0 var(--accent); }
-.product--featured { border-top-color: #fff; background: var(--accent); color: #18102e; }
+.product--featured { border-top-color: #fff; background: var(--accent); color: var(--on-accent); }
 .product--featured:hover { box-shadow: 6px 6px 0 var(--text); }
-.product--featured .product__tag { color: #18102e; border-color: rgba(24,16,46,0.35); }
-.product--featured .spec li { border-color: rgba(24,16,46,0.2); }
-.product--featured .spec li span { color: rgba(24,16,46,0.7); }
-.product--featured .spec li strong { color: #18102e; }
-.product--featured .product__link { color: #18102e; }
+.product--featured .product__tag { color: var(--on-accent); border-color: rgba(6,19,31,0.35); }
+.product--featured .spec li { border-color: rgba(6,19,31,0.2); }
+.product--featured .spec li span { color: rgba(6,19,31,0.72); }
+.product--featured .spec li strong { color: var(--on-accent); }
+.product--featured .product__link { color: var(--on-accent); }
 .product--featured .product__link:hover { color: #fff; }
 .product__tag { display: inline-block; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); padding: 4px 10px; border: 1px solid var(--line); margin-bottom: 22px; }
 .product h3 { font-size: 2.1rem; margin-bottom: 12px; }
@@ -231,7 +232,7 @@ img, svg { display: block; max-width: 100%; }
 .app p { color: var(--text-soft); }
 
 /* ----------------- Banner — editorial statement ----------------- */
-.banner { padding: 110px 0; background: linear-gradient(135deg, #1a1140, #241452); border-block: 1px solid var(--line); }
+.banner { padding: 110px 0; background: linear-gradient(135deg, #0a1626, #0f2a44); border-block: 1px solid var(--line); }
 .banner__inner { max-width: 980px; }
 .banner__inner h2 { font-size: clamp(2.1rem, 5vw, 3.6rem); line-height: 1.0; margin-bottom: 24px; max-width: 20ch; }
 .banner__inner p { color: var(--text-soft); font-size: 1.12rem; max-width: 60ch; margin-bottom: 32px; }
@@ -265,7 +266,7 @@ img, svg { display: block; max-width: 100%; }
 .form input::placeholder, .form textarea::placeholder { color: var(--text-mute); }
 .form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--accent); box-shadow: 3px 3px 0 var(--accent); }
 .form textarea { resize: vertical; }
-.form option { color: #18102e; }
+.form option { color: var(--on-accent); }
 .form .btn { justify-self: start; margin-top: 4px; }
 .form__note { font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent); min-height: 1.2em; }
 
