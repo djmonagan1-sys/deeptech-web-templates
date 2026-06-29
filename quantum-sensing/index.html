@@ -8,7 +8,7 @@
     name="description"
     content="Lattice Quantum builds chip-scale quantum sensors that measure magnetic, gravitational, and inertial fields with unprecedented precision — no GPS, no drift, no compromise."
   />
-  <meta name="theme-color" content="#070b16" />
+  <meta name="theme-color" content="#0a0b0e" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -21,38 +21,28 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <!-- Skip link for accessibility -->
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ====================== NAV ====================== -->
   <header class="nav" id="nav">
     <div class="container nav__inner">
-      <a class="brand" href="#top" aria-label="Lattice Quantum home">
+      <a class="brand" href="#top" aria-label="Home">
         <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
-          <circle cx="16" cy="16" r="3" />
-          <circle class="orbit" cx="16" cy="16" r="9" />
-          <circle class="orbit orbit--2" cx="16" cy="16" r="14" />
-          <circle class="node" cx="16" cy="7" r="1.6" />
-          <circle class="node" cx="25" cy="20" r="1.6" />
-          <circle class="node" cx="7" cy="20" r="1.6" />
+          <rect class="bm-ring" x="3" y="3" width="26" height="26" />
+          <rect class="bm-ring bm-ring--2" x="9" y="9" width="14" height="14" />
+          <rect class="bm-core" x="14" y="14" width="4" height="4" />
         </svg>
-        <span class="brand__name">Lattice<span class="brand__accent">Quantum</span></span>
+        <span class="brand__name" data-bind="brand"></span>
       </a>
 
-      <nav class="nav__links" aria-label="Primary">
-        <a href="#technology">Technology</a>
-        <a href="#products">Products</a>
-        <a href="#applications">Applications</a>
-        <a href="#company">Company</a>
-        <a class="btn btn--ghost nav__cta" href="#contact">Request a demo</a>
-      </nav>
+      <nav class="nav__links" id="nav-links" aria-label="Primary"></nav>
 
       <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -66,243 +56,58 @@
     <!-- ====================== HERO ====================== -->
     <section class="hero">
       <canvas class="hero__canvas" aria-hidden="true"></canvas>
-      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__grid" aria-hidden="true"></div>
       <div class="container hero__inner">
-        <p class="eyebrow reveal">Quantum sensing · founded 2024</p>
+        <p class="kicker reveal"><span class="kicker__tick"></span><span data-bind="hero.kicker"></span></p>
         <h1 class="hero__title reveal">
-          Measure the world<br />
-          <span class="gradient-text">at the quantum limit.</span>
+          <span data-bind="hero.titleTop"></span><br />
+          <span class="signal-text" data-bind="hero.titleAccent"></span>
         </h1>
-        <p class="hero__lead reveal">
-          Lattice Quantum builds chip-scale sensors that detect magnetic, gravitational, and
-          inertial fields with precision once reserved for national labs — packaged for the
-          field, the factory, and the operating room.
-        </p>
-        <div class="hero__actions reveal">
-          <a class="btn btn--primary" href="#products">Explore the platform</a>
-          <a class="btn btn--ghost" href="#technology">How it works</a>
-        </div>
-
-        <dl class="hero__stats reveal">
-          <div>
-            <dt>fT/√Hz</dt>
-            <dd>15</dd>
-            <span>Magnetic sensitivity</span>
-          </div>
-          <div>
-            <dt>cm³</dt>
-            <dd>&lt;8</dd>
-            <span>Sensor head volume</span>
-          </div>
-          <div>
-            <dt>hrs</dt>
-            <dd>72</dd>
-            <span>Drift-free operation</span>
-          </div>
-        </dl>
+        <p class="hero__lead reveal" data-bind="hero.lead"></p>
+        <div class="hero__actions reveal" id="hero-actions"></div>
+        <dl class="hero__stats reveal" id="hero-stats"></dl>
       </div>
     </section>
 
-    <!-- ====================== TRUST BAR ====================== -->
+    <!-- ====================== TRUST ====================== -->
     <section class="trust" aria-label="Trusted by">
       <div class="container">
-        <p class="trust__label">Partnering with teams in defense, energy, and medicine</p>
-        <ul class="trust__logos">
-          <li>DARPA-class programs</li>
-          <li>Subsea Energy</li>
-          <li>Neuro Imaging</li>
-          <li>Geospatial Survey</li>
-          <li>Autonomous Systems</li>
-        </ul>
+        <p class="trust__label" data-bind="trust.label"></p>
+        <ul class="trust__logos" id="trust-logos"></ul>
       </div>
     </section>
 
     <!-- ====================== TECHNOLOGY ====================== -->
     <section class="section" id="technology">
       <div class="container">
-        <header class="section__head reveal">
-          <p class="eyebrow">The technology</p>
-          <h2>Atoms make the best sensors. We made them practical.</h2>
-          <p class="section__sub">
-            Our sensors read the quantum state of atoms and engineered defects in diamond. Because
-            the reference is a law of nature — not a manufactured part — they don't drift, don't
-            need recalibration, and reach sensitivities classical electronics can't touch.
-          </p>
-        </header>
-
-        <div class="cards">
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg>
-            </div>
-            <h3>Optically pumped magnetometry</h3>
-            <p>
-              Polarized laser light prepares an atomic vapor; tiny magnetic fields rotate its spin.
-              We read that rotation to detect fields a billion times weaker than Earth's.
-            </p>
-          </article>
-
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>
-            </div>
-            <h3>Nitrogen-vacancy diamond</h3>
-            <p>
-              Atomic defects in synthetic diamond fluoresce differently under magnetic stress.
-              Solid-state, room-temperature, and rugged enough for the field.
-            </p>
-          </article>
-
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-            </div>
-            <h3>Cold-atom interferometry</h3>
-            <p>
-              Laser-cooled atoms in free fall form an inertial reference of extraordinary stability —
-              gravimetry and navigation that never accumulate error.
-            </p>
-          </article>
-        </div>
-
-        <!-- How it works strip -->
-        <div class="howit reveal">
-          <ol class="howit__steps">
-            <li>
-              <span class="howit__num">01</span>
-              <h4>Prepare</h4>
-              <p>Lasers cool and polarize atoms into a known quantum state.</p>
-            </li>
-            <li>
-              <span class="howit__num">02</span>
-              <h4>Interrogate</h4>
-              <p>The field of interest perturbs the state in a precisely measurable way.</p>
-            </li>
-            <li>
-              <span class="howit__num">03</span>
-              <h4>Read out</h4>
-              <p>Photodetectors measure the shift; DSP converts it to a calibrated value.</p>
-            </li>
-            <li>
-              <span class="howit__num">04</span>
-              <h4>Deliver</h4>
-              <p>A clean digital stream — no drift, no warm-up, no recalibration.</p>
-            </li>
-          </ol>
-        </div>
+        <header class="shead reveal" data-head="technology"></header>
+        <div class="cards" id="tech-cards"></div>
+        <ol class="howit" id="tech-steps"></ol>
       </div>
     </section>
 
     <!-- ====================== PRODUCTS ====================== -->
     <section class="section section--alt" id="products">
       <div class="container">
-        <header class="section__head reveal">
-          <p class="eyebrow">The platform</p>
-          <h2>One quantum core. Three field-ready instruments.</h2>
-        </header>
-
-        <div class="products">
-          <article class="product reveal">
-            <div class="product__tag">Magnetometry</div>
-            <h3>Lattice&nbsp;M1</h3>
-            <p class="product__desc">
-              A chip-scale optically pumped magnetometer for biomagnetic imaging and
-              navigation-grade field mapping.
-            </p>
-            <ul class="spec">
-              <li><span>Sensitivity</span><strong>15 fT/√Hz</strong></li>
-              <li><span>Bandwidth</span><strong>DC – 2 kHz</strong></li>
-              <li><span>Head volume</span><strong>&lt; 8 cm³</strong></li>
-              <li><span>Operating temp</span><strong>−20 to 60 °C</strong></li>
-            </ul>
-            <a class="product__link" href="#contact">Request datasheet →</a>
-          </article>
-
-          <article class="product product--featured reveal">
-            <div class="product__tag">Gravimetry</div>
-            <h3>Lattice&nbsp;G2</h3>
-            <p class="product__desc">
-              A cold-atom gravimeter delivering absolute, drift-free gravity measurements for
-              subsurface mapping and resource exploration.
-            </p>
-            <ul class="spec">
-              <li><span>Accuracy</span><strong>1 µGal</strong></li>
-              <li><span>Repeatability</span><strong>0.5 µGal</strong></li>
-              <li><span>Measurement rate</span><strong>2 Hz</strong></li>
-              <li><span>Recalibration</span><strong>Never</strong></li>
-            </ul>
-            <a class="product__link" href="#contact">Request datasheet →</a>
-          </article>
-
-          <article class="product reveal">
-            <div class="product__tag">Navigation</div>
-            <h3>Lattice&nbsp;N3</h3>
-            <p class="product__desc">
-              A quantum inertial measurement unit for assured positioning when GPS is denied,
-              jammed, or simply unavailable.
-            </p>
-            <ul class="spec">
-              <li><span>Drift</span><strong>&lt; 5 m / hr</strong></li>
-              <li><span>GPS-free</span><strong>Yes</strong></li>
-              <li><span>Interface</span><strong>MIL-STD-1553</strong></li>
-              <li><span>Endurance</span><strong>72 hrs</strong></li>
-            </ul>
-            <a class="product__link" href="#contact">Request datasheet →</a>
-          </article>
-        </div>
+        <header class="shead reveal" data-head="products"></header>
+        <div class="products" id="products-grid"></div>
       </div>
     </section>
 
     <!-- ====================== APPLICATIONS ====================== -->
     <section class="section" id="applications">
       <div class="container">
-        <header class="section__head reveal">
-          <p class="eyebrow">Where it works</p>
-          <h2>Built for the problems that defeat classical sensors.</h2>
-        </header>
-
-        <div class="apps">
-          <article class="app reveal">
-            <h3>Brain imaging without the helmet</h3>
-            <p>
-              Wearable magnetoencephalography that moves with the patient — opening
-              functional brain imaging to children, motion, and the clinic.
-            </p>
-          </article>
-          <article class="app reveal">
-            <h3>Navigation when GPS goes dark</h3>
-            <p>
-              Quantum inertial sensing keeps vehicles, vessels, and aircraft on course
-              through jamming, tunnels, and the deep ocean.
-            </p>
-          </article>
-          <article class="app reveal">
-            <h3>Seeing beneath the surface</h3>
-            <p>
-              Gravity and magnetic gradiometry reveal aquifers, ore bodies, voids, and
-              infrastructure — without breaking ground.
-            </p>
-          </article>
-          <article class="app reveal">
-            <h3>Securing critical infrastructure</h3>
-            <p>
-              Passive magnetic detection of vehicles, vessels, and unmanned systems that
-              emit nothing a classical sensor can catch.
-            </p>
-          </article>
-        </div>
+        <header class="shead reveal" data-head="applications"></header>
+        <div class="apps" id="apps-grid"></div>
       </div>
     </section>
 
-    <!-- ====================== METRICS / CTA BANNER ====================== -->
+    <!-- ====================== BANNER ====================== -->
     <section class="banner">
       <div class="container banner__inner reveal">
-        <h2>The gap between lab and field is where we live.</h2>
-        <p>
-          We engineer the lasers, photonics, packaging, and firmware that turn a physics
-          experiment into an instrument you can deploy on a drone, a ship, or a patient.
-        </p>
-        <a class="btn btn--primary" href="#contact">Talk to our engineers</a>
+        <h2 data-bind="banner.title"></h2>
+        <p data-bind="banner.text"></p>
+        <div id="banner-cta"></div>
       </div>
     </section>
 
@@ -310,74 +115,28 @@
     <section class="section section--alt" id="company">
       <div class="container company">
         <div class="company__copy reveal">
-          <p class="eyebrow">The company</p>
-          <h2>A team of physicists and engineers, shipping hardware.</h2>
-          <p>
-            Lattice Quantum was founded by atomic-physics researchers and aerospace engineers
-            who were tired of watching breakthrough sensing stay locked in the lab. We close the
-            loop between quantum science and rugged, manufacturable instruments.
-          </p>
-          <p>
-            We're a deeptech company at heart: hard problems, long horizons, and a bias toward
-            building real things that work outside a vacuum chamber.
-          </p>
-          <div class="company__values">
-            <div><strong>Physics-first</strong><span>The reference is nature, not a calibration table.</span></div>
-            <div><strong>Field-ready</strong><span>If it can't survive a truck bed, it isn't done.</span></div>
-            <div><strong>Open by design</strong><span>Documented APIs and honest specs, always.</span></div>
-          </div>
+          <header class="shead shead--left" data-head="company"></header>
+          <div id="company-paragraphs"></div>
+          <div class="company__values" id="company-values"></div>
         </div>
-        <aside class="company__stats reveal">
-          <div class="stat"><strong>2024</strong><span>Founded</span></div>
-          <div class="stat"><strong>40+</strong><span>Scientists &amp; engineers</span></div>
-          <div class="stat"><strong>$48M</strong><span>Series A raised</span></div>
-          <div class="stat"><strong>11</strong><span>Patents filed</span></div>
-        </aside>
+        <aside class="company__stats reveal" id="company-stats"></aside>
       </div>
     </section>
 
     <!-- ====================== CONTACT ====================== -->
     <section class="section" id="contact">
       <div class="container contact">
-        <header class="section__head section__head--left reveal">
-          <p class="eyebrow">Get in touch</p>
-          <h2>Tell us what you need to measure.</h2>
-          <p class="section__sub">
-            Whether you're designing a payload or scoping a research program, our engineering
-            team will respond within two business days.
-          </p>
-        </header>
-
+        <header class="shead shead--left reveal" data-head="contact"></header>
         <form class="form reveal" novalidate>
           <div class="form__row">
-            <label>
-              <span>Name</span>
-              <input type="text" name="name" autocomplete="name" required />
-            </label>
-            <label>
-              <span>Work email</span>
-              <input type="email" name="email" autocomplete="email" required />
-            </label>
+            <label><span>Name</span><input type="text" name="name" autocomplete="name" required /></label>
+            <label><span>Work email</span><input type="email" name="email" autocomplete="email" required /></label>
           </div>
-          <label>
-            <span>Organization</span>
-            <input type="text" name="org" autocomplete="organization" />
+          <label><span>Organization</span><input type="text" name="org" autocomplete="organization" /></label>
+          <label><span>Area of interest</span>
+            <select name="interest" id="contact-interests"></select>
           </label>
-          <label>
-            <span>Area of interest</span>
-            <select name="interest">
-              <option value="">Select one…</option>
-              <option>Magnetometry (M1)</option>
-              <option>Gravimetry (G2)</option>
-              <option>Navigation (N3)</option>
-              <option>Research collaboration</option>
-              <option>Something else</option>
-            </select>
-          </label>
-          <label>
-            <span>What are you trying to measure?</span>
-            <textarea name="message" rows="4"></textarea>
-          </label>
+          <label><span>What are you trying to measure?</span><textarea name="message" rows="4"></textarea></label>
           <button class="btn btn--primary" type="submit">Send message</button>
           <p class="form__note" role="status" aria-live="polite"></p>
         </form>
@@ -389,43 +148,26 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <a class="brand" href="#top" aria-label="Lattice Quantum home">
+        <a class="brand" href="#top" aria-label="Home">
           <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
-            <circle cx="16" cy="16" r="3" />
-            <circle class="orbit" cx="16" cy="16" r="9" />
-            <circle class="orbit orbit--2" cx="16" cy="16" r="14" />
+            <rect class="bm-ring" x="3" y="3" width="26" height="26" />
+            <rect class="bm-ring bm-ring--2" x="9" y="9" width="14" height="14" />
+            <rect class="bm-core" x="14" y="14" width="4" height="4" />
           </svg>
-          <span class="brand__name">Lattice<span class="brand__accent">Quantum</span></span>
+          <span class="brand__name" data-bind="brand"></span>
         </a>
-        <p>Quantum sensing for the real world.</p>
+        <p data-bind="footer.tagline"></p>
       </div>
-      <nav class="footer__nav" aria-label="Footer">
-        <div>
-          <h4>Platform</h4>
-          <a href="#products">Lattice M1</a>
-          <a href="#products">Lattice G2</a>
-          <a href="#products">Lattice N3</a>
-        </div>
-        <div>
-          <h4>Company</h4>
-          <a href="#company">About</a>
-          <a href="#applications">Applications</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div>
-          <h4>Connect</h4>
-          <a href="#contact">Careers</a>
-          <a href="#contact">Press</a>
-          <a href="#contact">Partners</a>
-        </div>
-      </nav>
+      <nav class="footer__nav" id="footer-cols" aria-label="Footer"></nav>
     </div>
     <div class="container footer__bottom">
-      <p>© <span id="year"></span> Lattice Quantum, Inc. All rights reserved.</p>
-      <p class="footer__fine">This is a demonstration template. Company, specs, and figures are illustrative.</p>
+      <p>© <span id="year"></span> <span data-bind="footer.legal"></span></p>
+      <p class="footer__fine" data-bind="footer.fine"></p>
     </div>
   </footer>
 
+  <!-- Content first, then the renderer -->
+  <script src="content.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

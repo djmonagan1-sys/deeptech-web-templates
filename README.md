@@ -26,15 +26,21 @@ Demonstrates the conventions every template in this repo follows.
 
 ### Features
 
-- Responsive, dark "deep-space" theme with a quantum cyan/violet accent system
-- Animated hero with a lightweight `<canvas>` "quantum lattice" particle field
-  (auto-pauses off-screen and respects `prefers-reduced-motion`)
+- **Edit everything in one file** — all words, numbers, links, and lists live
+  in [`content.js`](./quantum-sensing/content.js). Change it, refresh, done.
+  No HTML editing, no build step (see *Editing the content* below).
+- A distinctive **lab-instrument / blueprint** aesthetic: sharp geometry,
+  hairline engineering grid, notched buttons, corner-tick panels, and
+  monospace technical labels — not a generic gradient SaaS look
+- Animated hero with a lightweight `<canvas>` "quantum lattice" of square
+  nodes (auto-pauses off-screen and respects `prefers-reduced-motion`)
 - Reveal-on-scroll animations via `IntersectionObserver`
 - Sections: hero, trust bar, technology, how-it-works, products with spec
   tables, applications, company, and a contact form
 - Accessible: skip link, semantic landmarks, keyboard-friendly nav,
   reduced-motion support
-- Zero dependencies beyond a Google Fonts link (Sora + Inter)
+- Type system: **Bricolage Grotesque** (display) + **IBM Plex Sans** (body) +
+  **IBM Plex Mono** (labels), loaded from Google Fonts
 
 ### Run it locally
 
@@ -57,21 +63,51 @@ python3 -m http.server 8000
 
 ```
 quantum-sensing/
-├── index.html        # all markup / content
+├── index.html        # structural shell — mount points only, rarely edited
+├── content.js        # ← ALL editable content lives here (text, specs, links)
 ├── css/styles.css    # design tokens + components (edit :root to re-theme)
-├── js/main.js        # nav, scroll reveal, hero canvas, form handler
+├── js/main.js        # renders content.js into the page + interactions
 └── assets/
     └── favicon.svg
 ```
 
-### Make it yours
+### Editing the content
 
-- **Re-theme** by editing the CSS custom properties in `:root`
-  (`--accent`, `--accent-2`, `--bg`, fonts, radius).
-- **Re-content** by editing the copy and `--spec` tables in `index.html`.
-  Company name, product names, and figures are placeholders.
+`content.js` is a single, heavily-commented `window.SITE = { … }` object.
+`js/main.js` reads it and renders the page, so:
+
+- **Change text / numbers** — edit the value between the quotes.
+- **Add a product, card, stat, or nav link** — copy one `{ … }` block in the
+  relevant list and tweak it (keep the trailing comma).
+- **Remove one** — delete its `{ … }` block.
+
+You never touch HTML or CSS to change copy. Example — adding a fourth hero stat:
+
+```js
+stats: [
+  { value: "15", unit: "fT/√Hz", label: "Magnetic sensitivity" },
+  { value: "1",  unit: "µGal",   label: "Gravimeter accuracy" },   // ← new
+],
+```
+
+> **Want a visual, in-browser editor instead?** Because the markup is static,
+> this template drops straight into a git-based CMS like
+> [Decap CMS](https://decapcms.org/) or [TinaCMS](https://tina.io/) so
+> non-developers can edit via a UI with live preview. That's an optional
+> upgrade — ask and it can be wired in.
+
+### Re-theming
+
+- **Colors, fonts, geometry** — edit the CSS custom properties in `:root` at
+  the top of `css/styles.css` (`--accent`, `--signal`, `--bg`, `--font-*`,
+  `--notch`, `--radius`). Everything cascades from there.
 - **Wire the contact form** to a real backend — the current handler in
   `js/main.js` is a client-side demo that validates and shows a confirmation.
+
+> **Note on SEO:** content renders client-side from `content.js`, which keeps
+> editing trivial but means search crawlers need JS execution (modern crawlers
+> handle this). For maximum SEO you can pre-render to static HTML or adopt the
+> CMS path above — happy to set either up.
 
 > ⚠️ All company details, specifications, and figures are **illustrative**,
 > created for this demonstration template.
