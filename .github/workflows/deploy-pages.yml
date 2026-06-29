@@ -1,0 +1,43 @@
+name: Deploy preview to GitHub Pages
+
+# Publishes quantum-sensing/ to GitHub Pages on every push, so there is
+# always a live preview URL that reflects the latest commit.
+
+on:
+  push:
+    branches: ["claude/quantum-sensing-webpage-4ghq6f"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; newer pushes supersede in-flight ones.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload site (quantum-sensing/ as the site root)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./quantum-sensing
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
