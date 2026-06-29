@@ -12,17 +12,17 @@ Drop it on any static host (GitHub Pages, Netlify, Cloudflare Pages, S3) as-is.
 
 | Template | Industry | Path |
 | --- | --- | --- |
-| **Lattice Quantum** | Quantum sensing | [`quantum-sensing/`](./quantum-sensing) |
+| **DiagnostiQS** | Quantum sensing (NV-diamond diagnostics) | [`quantum-sensing/`](./quantum-sensing) |
 
 > More verticals (photonics, fusion, biotech, space, advanced materials) will
 > follow the same structure.
 
 ## Quantum Sensing — `quantum-sensing/`
 
-A landing page for a fictional quantum-sensing company, *Lattice Quantum*.
-Demonstrates the conventions every template in this repo follows.
+A landing page for a fictional NV-diamond quantum-diagnostics company,
+*DiagnostiQS*. Demonstrates the conventions every template in this repo follows.
 
-![Lattice Quantum hero](./quantum-sensing/assets/preview.png)
+![DiagnostiQS hero](./quantum-sensing/assets/preview.png)
 
 ### Features
 
@@ -85,8 +85,8 @@ You never touch HTML or CSS to change copy. Example — adding a fourth hero sta
 
 ```js
 stats: [
-  { value: "15", unit: "fT/√Hz", label: "Magnetic sensitivity" },
-  { value: "1",  unit: "µGal",   label: "Gravimeter accuracy" },   // ← new
+  { value: "1",  unit: "pT/√Hz", label: "Magnetic sensitivity" },
+  { value: "22", unit: "°C",     label: "Operates at room temp" },  // ← new
 ],
 ```
 

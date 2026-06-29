@@ -1,5 +1,5 @@
 /* =========================================================================
-   LATTICE QUANTUM — SITE CONTENT
+   DIAGNOSTIQS — SITE CONTENT
    -------------------------------------------------------------------------
    This is the ONLY file you need to edit to change the website's words,
    numbers, links, and lists. Save it and refresh the page — everything
@@ -15,12 +15,13 @@
 
 window.SITE = {
   /* ---- Brand (appears in the header + footer) ---- */
-  brand: { name: "Lattice", accent: "Quantum" },
+  /* Renders as name + accent: "Diagnosti" + "QS" = DiagnostiQS */
+  brand: { name: "Diagnosti", accent: "QS" },
 
   /* ---- Top navigation ---- */
   nav: [
     { label: "Technology",   href: "#technology" },
-    { label: "Products",     href: "#products" },
+    { label: "Instruments",  href: "#products" },
     { label: "Applications", href: "#applications" },
     { label: "Company",      href: "#company" },
   ],
@@ -28,125 +29,126 @@ window.SITE = {
 
   /* ---- Hero (the big first screen) ---- */
   hero: {
-    kicker: "Quantum sensing — est. 2024",
-    titleTop: "Measure the world",
-    titleAccent: "at the quantum limit.",
+    kicker: "NV-diamond quantum sensing — est. 2024",
+    titleTop: "Quantum diagnostics,",
+    titleAccent: "powered by diamond.",
     lead:
-      "Lattice Quantum builds chip-scale sensors that detect magnetic, " +
-      "gravitational, and inertial fields with precision once reserved for " +
-      "national labs — packaged for the field, the factory, and the operating room.",
+      "DiagnostiQS builds medical instruments around a single quantum sensor: " +
+      "the nitrogen-vacancy center in diamond. It detects the body's faint " +
+      "magnetic signals at room temperature — no cryogenics, no shielded room, " +
+      "no contact required.",
     actions: [
-      { label: "Explore the platform", href: "#products",   style: "primary" },
-      { label: "How it works",         href: "#technology", style: "ghost" },
+      { label: "See the instruments", href: "#products",   style: "primary" },
+      { label: "How it works",        href: "#technology", style: "ghost" },
     ],
     stats: [
-      { value: "15",  unit: "fT/√Hz", label: "Magnetic sensitivity" },
-      { value: "<8",  unit: "cm³",    label: "Sensor head volume" },
-      { value: "72",  unit: "hrs",    label: "Drift-free operation" },
+      { value: "1",   unit: "pT/√Hz", label: "Magnetic sensitivity" },
+      { value: "22",  unit: "°C",     label: "Operates at room temp — no cryogens" },
+      { value: "<1",  unit: "mm",     label: "Diamond sensor footprint" },
     ],
   },
 
   /* ---- Trust bar ---- */
   trust: {
-    label: "Partnering with teams in defense, energy, and medicine",
+    label: "Working with hospitals, diagnostic labs, and research centers",
     logos: [
-      "DARPA-class programs",
-      "Subsea Energy",
-      "Neuro Imaging",
-      "Geospatial Survey",
-      "Autonomous Systems",
+      "Cardiac Centers",
+      "Clinical Labs",
+      "Academic Hospitals",
+      "Biotech R&D",
+      "Medical Imaging",
     ],
   },
 
-  /* ---- Technology ---- */
+  /* ---- Technology — all NV-diamond ---- */
   technology: {
     index: "01",
     kicker: "The technology",
-    title: "Atoms make the best sensors. We made them practical.",
+    title: "One sensor: the nitrogen-vacancy center in diamond.",
     sub:
-      "Our sensors read the quantum state of atoms and engineered defects in " +
-      "diamond. Because the reference is a law of nature — not a manufactured " +
-      "part — they don't drift, don't need recalibration, and reach " +
-      "sensitivities classical electronics can't touch.",
+      "We engineer atomic defects into synthetic diamond. Each defect is a " +
+      "quantum sensor whose spin shifts in the presence of a magnetic field — " +
+      "and because the reference is an atom, not a manufactured part, it never " +
+      "drifts and never needs recalibration.",
     cards: [
       {
-        title: "Optically pumped magnetometry",
+        title: "Atomic defects, engineered",
         body:
-          "Polarized laser light prepares an atomic vapor; tiny magnetic fields " +
-          "rotate its spin. We read that rotation to detect fields a billion " +
-          "times weaker than Earth's.",
+          "A nitrogen atom beside a vacancy in the carbon lattice forms a " +
+          "single quantum system. We grow diamond with these centers placed " +
+          "by the billion for maximum signal.",
       },
       {
-        title: "Nitrogen-vacancy diamond",
+        title: "Room-temperature & solid-state",
         body:
-          "Atomic defects in synthetic diamond fluoresce differently under " +
-          "magnetic stress. Solid-state, room-temperature, and rugged enough " +
-          "for the field.",
+          "No liquid helium, no vacuum chamber, no magnetic shielding. The " +
+          "sensor is a chip of diamond — rugged enough to sit at the bedside " +
+          "or inside a benchtop instrument.",
       },
       {
-        title: "Cold-atom interferometry",
+        title: "Optical spin readout",
         body:
-          "Laser-cooled atoms in free fall form an inertial reference of " +
-          "extraordinary stability — gravimetry and navigation that never " +
-          "accumulate error.",
+          "A green laser initializes the spin; microwaves probe it; the red " +
+          "fluorescence it emits encodes the magnetic field. We read light, " +
+          "not voltage — so there is nothing to drift.",
       },
     ],
     steps: [
-      { title: "Prepare",     body: "Lasers cool and polarize atoms into a known quantum state." },
-      { title: "Interrogate", body: "The field of interest perturbs the state in a precisely measurable way." },
-      { title: "Read out",    body: "Photodetectors measure the shift; DSP converts it to a calibrated value." },
-      { title: "Deliver",     body: "A clean digital stream — no drift, no warm-up, no recalibration." },
+      { title: "Initialize", body: "A green laser polarizes the NV centers into a known spin state." },
+      { title: "Interrogate", body: "Microwaves drive the spin; the magnetic field shifts its resonance." },
+      { title: "Read out",    body: "Red fluorescence intensity reports the spin state, optically." },
+      { title: "Deliver",     body: "Calibrated magnetic-field values, streamed continuously and drift-free." },
     ],
   },
 
-  /* ---- Products ---- */
+  /* ---- Instruments — every product is NV-diamond ---- */
   products: {
     index: "02",
-    kicker: "The platform",
-    title: "One quantum core. Three field-ready instruments.",
+    kicker: "The instruments",
+    title: "Three diagnostic instruments. One diamond core.",
     items: [
       {
-        tag: "Magnetometry",
-        name: "Lattice M1",
+        tag: "Neural",
+        name: "Cortex",
         desc:
-          "A chip-scale optically pumped magnetometer for biomagnetic imaging " +
-          "and navigation-grade field mapping.",
+          "Wearable magnetoencephalography. Maps the brain's magnetic activity " +
+          "with sensors that move with the patient — no shielded room.",
         featured: false,
         specs: [
-          { k: "Sensitivity",    v: "15 fT/√Hz" },
-          { k: "Bandwidth",      v: "DC – 2 kHz" },
-          { k: "Head volume",    v: "< 8 cm³" },
-          { k: "Operating temp", v: "−20 to 60 °C" },
+          { k: "Sensitivity", v: "200 fT/√Hz" },
+          { k: "Channels",    v: "64" },
+          { k: "Wearable",    v: "Yes" },
+          { k: "Shielding",   v: "Lightweight" },
         ],
         link: { label: "Request datasheet", href: "#contact" },
       },
       {
-        tag: "Gravimetry",
-        name: "Lattice G2",
+        tag: "Cardiac",
+        name: "Cardia",
         desc:
-          "A cold-atom gravimeter delivering absolute, drift-free gravity " +
-          "measurements for subsurface mapping and resource exploration.",
+          "Magnetocardiography at the bedside. Maps the heart's magnetic field " +
+          "without electrodes, gels, or a magnetically shielded room.",
         featured: true,
         specs: [
-          { k: "Accuracy",         v: "1 µGal" },
-          { k: "Repeatability",    v: "0.5 µGal" },
-          { k: "Measurement rate", v: "2 Hz" },
-          { k: "Recalibration",    v: "Never" },
+          { k: "Sensitivity", v: "1 pT/√Hz" },
+          { k: "Bandwidth",   v: "DC – 1 kHz" },
+          { k: "Channels",    v: "32" },
+          { k: "Shielding",   v: "None required" },
         ],
         link: { label: "Request datasheet", href: "#contact" },
       },
       {
-        tag: "Navigation",
-        name: "Lattice N3",
+        tag: "Molecular",
+        name: "Assay",
         desc:
-          "A quantum inertial measurement unit for assured positioning when " +
-          "GPS is denied, jammed, or simply unavailable.",
+          "Chip-scale nuclear magnetic resonance for in-vitro diagnostics — " +
+          "molecular fingerprints from picoliter samples, optically detected.",
         featured: false,
         specs: [
-          { k: "Drift",     v: "< 5 m / hr" },
-          { k: "GPS-free",  v: "Yes" },
-          { k: "Interface", v: "MIL-STD-1553" },
-          { k: "Endurance", v: "72 hrs" },
+          { k: "Sample volume", v: "10 pL" },
+          { k: "Detection",     v: "Optical" },
+          { k: "Format",        v: "Benchtop" },
+          { k: "Recalibration", v: "Never" },
         ],
         link: { label: "Request datasheet", href: "#contact" },
       },
@@ -157,68 +159,68 @@ window.SITE = {
   applications: {
     index: "03",
     kicker: "Where it works",
-    title: "Built for the problems that defeat classical sensors.",
+    title: "Built for signals classical sensors can't hear.",
     items: [
       {
-        title: "Brain imaging without the helmet",
+        title: "Cardiac screening without the shielded room",
         body:
-          "Wearable magnetoencephalography that moves with the patient — " +
-          "opening functional brain imaging to children, motion, and the clinic.",
+          "Magnetocardiography that fits in a clinic — detecting ischemia and " +
+          "arrhythmia from the heart's magnetic field, no electrodes attached.",
       },
       {
-        title: "Navigation when GPS goes dark",
+        title: "Functional brain imaging that moves",
         body:
-          "Quantum inertial sensing keeps vehicles, vessels, and aircraft on " +
-          "course through jamming, tunnels, and the deep ocean.",
+          "Wearable MEG opens neural recording to children, motion, and the " +
+          "bedside — far beyond what fixed, cryogenic scanners allow.",
       },
       {
-        title: "Seeing beneath the surface",
+        title: "Molecular diagnostics on a chip",
         body:
-          "Gravity and magnetic gradiometry reveal aquifers, ore bodies, voids, " +
-          "and infrastructure — without breaking ground.",
+          "NV-NMR reads chemical fingerprints from picoliter samples, bringing " +
+          "lab-grade molecular analysis to the point of care.",
       },
       {
-        title: "Securing critical infrastructure",
+        title: "Earlier detection, non-invasively",
         body:
-          "Passive magnetic detection of vehicles, vessels, and unmanned systems " +
-          "that emit nothing a classical sensor can catch.",
+          "Passive magnetic biosignals mean no radiation, no contrast agents, " +
+          "and no contact — safe to repeat as often as the diagnosis demands.",
       },
     ],
   },
 
   /* ---- Mid-page banner ---- */
   banner: {
-    title: "The gap between lab and field is where we live.",
+    title: "The signal is there. Classical sensors just can't hear it.",
     text:
-      "We engineer the lasers, photonics, packaging, and firmware that turn a " +
-      "physics experiment into an instrument you can deploy on a drone, a ship, " +
-      "or a patient.",
-    cta: { label: "Talk to our engineers", href: "#contact" },
+      "The body's magnetic signals are a billion times weaker than a fridge " +
+      "magnet. NV-diamond reads them at room temperature, without a shielded " +
+      "room — turning a physics breakthrough into a diagnostic instrument.",
+    cta: { label: "Talk to our scientists", href: "#contact" },
   },
 
   /* ---- Company ---- */
   company: {
     index: "04",
     kicker: "The company",
-    title: "A team of physicists and engineers, shipping hardware.",
+    title: "Physicists and clinicians, building diagnostic instruments.",
     paragraphs: [
-      "Lattice Quantum was founded by atomic-physics researchers and aerospace " +
-        "engineers who were tired of watching breakthrough sensing stay locked " +
-        "in the lab. We close the loop between quantum science and rugged, " +
-        "manufacturable instruments.",
-      "We're a deeptech company at heart: hard problems, long horizons, and a " +
-        "bias toward building real things that work outside a vacuum chamber.",
+      "DiagnostiQS was founded by nitrogen-vacancy researchers and medical-" +
+        "device engineers who were tired of watching quantum sensing stay " +
+        "locked in the optics lab. We do one thing: NV-diamond sensing for " +
+        "medicine — and we do it exceptionally well.",
+      "We're a deeptech company at heart: hard physics, long horizons, and a " +
+        "bias toward building real instruments that earn their place in the clinic.",
     ],
     values: [
-      { title: "Physics-first", body: "The reference is nature, not a calibration table." },
-      { title: "Field-ready",   body: "If it can't survive a truck bed, it isn't done." },
-      { title: "Open by design", body: "Documented APIs and honest specs, always." },
+      { title: "Diamond-native", body: "One platform, mastered — NV-diamond sensing, end to end." },
+      { title: "Clinic-ready",   body: "Engineered for the bedside, not the optics bench." },
+      { title: "Evidence-first", body: "Validated against clinical gold standards, honestly reported." },
     ],
     stats: [
       { value: "2024", label: "Founded" },
-      { value: "40+",  label: "Scientists & engineers" },
-      { value: "$48M", label: "Series A raised" },
-      { value: "11",   label: "Patents filed" },
+      { value: "35+",  label: "Scientists & engineers" },
+      { value: "$42M", label: "Series A raised" },
+      { value: "9",    label: "Patents filed" },
     ],
   },
 
@@ -226,14 +228,14 @@ window.SITE = {
   contact: {
     index: "05",
     kicker: "Get in touch",
-    title: "Tell us what you need to measure.",
+    title: "Tell us what you need to detect.",
     sub:
-      "Whether you're designing a payload or scoping a research program, our " +
-      "engineering team will respond within two business days.",
+      "Whether you're running a clinical study or scoping a diagnostic program, " +
+      "our team will respond within two business days.",
     interests: [
-      "Magnetometry (M1)",
-      "Gravimetry (G2)",
-      "Navigation (N3)",
+      "Neural imaging (Cortex)",
+      "Cardiac sensing (Cardia)",
+      "Molecular diagnostics (Assay)",
       "Research collaboration",
       "Something else",
     ],
@@ -241,14 +243,14 @@ window.SITE = {
 
   /* ---- Footer ---- */
   footer: {
-    tagline: "Quantum sensing for the real world.",
+    tagline: "Quantum diagnostics, powered by diamond.",
     columns: [
       {
-        title: "Platform",
+        title: "Instruments",
         links: [
-          { label: "Lattice M1", href: "#products" },
-          { label: "Lattice G2", href: "#products" },
-          { label: "Lattice N3", href: "#products" },
+          { label: "Cortex — Neural",    href: "#products" },
+          { label: "Cardia — Cardiac",   href: "#products" },
+          { label: "Assay — Molecular",  href: "#products" },
         ],
       },
       {
@@ -268,7 +270,7 @@ window.SITE = {
         ],
       },
     ],
-    legal: "Lattice Quantum, Inc. All rights reserved.",
+    legal: "DiagnostiQS, Inc. All rights reserved.",
     fine: "This is a demonstration template. Company, specs, and figures are illustrative.",
   },
 };
