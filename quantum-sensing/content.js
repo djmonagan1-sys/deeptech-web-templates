@@ -30,13 +30,13 @@ window.SITE = {
   /* ---- Hero (the big first screen) ---- */
   hero: {
     kicker: "NV-diamond quantum sensing — est. 2024",
-    titleTop: "Quantum diagnostics,",
+    titleTop: "Quantum sensing,",
     titleAccent: "powered by diamond.",
     lead:
-      "DiagnostiQS builds medical instruments around a single quantum sensor: " +
-      "the nitrogen-vacancy center in diamond. It detects the body's faint " +
-      "magnetic signals at room temperature — no cryogenics, no shielded room, " +
-      "no contact required.",
+      "DiagnostiQS builds instruments around a single quantum sensor — the " +
+      "nitrogen-vacancy center in diamond. One platform measures magnetic " +
+      "fields with extraordinary precision, at room temperature, across " +
+      "semiconductor failure analysis, GNSS-denied navigation, and the life sciences.",
     actions: [
       { label: "See the instruments", href: "#products",   style: "primary" },
       { label: "How it works",        href: "#technology", style: "ghost" },
@@ -44,19 +44,19 @@ window.SITE = {
     stats: [
       { value: "1",   unit: "pT/√Hz", label: "Magnetic sensitivity" },
       { value: "22",  unit: "°C",     label: "Operates at room temp — no cryogens" },
-      { value: "<1",  unit: "mm",     label: "Diamond sensor footprint" },
+      { value: "<1",  unit: "µm",     label: "Imaging resolution" },
     ],
   },
 
   /* ---- Trust bar ---- */
   trust: {
-    label: "Working with hospitals, diagnostic labs, and research centers",
+    label: "Working with semiconductor fabs, defense programs, and life-science labs",
     logos: [
-      "Cardiac Centers",
-      "Clinical Labs",
-      "Academic Hospitals",
-      "Biotech R&D",
-      "Medical Imaging",
+      "Semiconductor Fabs",
+      "Defense & Aerospace",
+      "Pharma & Biotech",
+      "National Labs",
+      "Autonomous Systems",
     ],
   },
 
@@ -82,8 +82,8 @@ window.SITE = {
         title: "Room-temperature & solid-state",
         body:
           "No liquid helium, no vacuum chamber, no magnetic shielding. The " +
-          "sensor is a chip of diamond — rugged enough to sit at the bedside " +
-          "or inside a benchtop instrument.",
+          "sensor is a chip of diamond — rugged enough for the fab floor, a " +
+          "moving vehicle, or a benchtop instrument.",
       },
       {
         title: "Optical spin readout",
@@ -101,53 +101,55 @@ window.SITE = {
     ],
   },
 
-  /* ---- Instruments — every product is NV-diamond ---- */
+  /* ---- Instruments — one per target market, all NV-diamond ---- */
   products: {
     index: "02",
     kicker: "The instruments",
-    title: "Three diagnostic instruments. One diamond core.",
+    title: "Three instruments. One diamond core.",
     items: [
       {
-        tag: "Neural",
-        name: "Cortex",
+        tag: "Semiconductor",
+        name: "Iris",
         desc:
-          "Wearable magnetoencephalography. Maps the brain's magnetic activity " +
-          "with sensors that move with the patient — no shielded room.",
+          "A wide-field quantum diamond microscope that images magnetic fields " +
+          "and current flow inside packaged chips — localizing faults without " +
+          "destroying the device.",
         featured: false,
         specs: [
-          { k: "Sensitivity", v: "200 fT/√Hz" },
-          { k: "Channels",    v: "64" },
-          { k: "Wearable",    v: "Yes" },
-          { k: "Shielding",   v: "Lightweight" },
+          { k: "Resolution",    v: "< 1 µm" },
+          { k: "Field of view", v: "4 × 4 mm" },
+          { k: "Modality",      v: "Current imaging" },
+          { k: "Operation",     v: "Room temp" },
         ],
         link: { label: "Request datasheet", href: "#contact" },
       },
       {
-        tag: "Cardiac",
-        name: "Cardia",
+        tag: "Navigation",
+        name: "Vector",
         desc:
-          "Magnetocardiography at the bedside. Maps the heart's magnetic field " +
-          "without electrodes, gels, or a magnetically shielded room.",
+          "A chip-scale magnetometer for magnetic-anomaly and inertial " +
+          "navigation that holds course when GNSS is jammed, spoofed, or " +
+          "simply unavailable.",
         featured: true,
         specs: [
-          { k: "Sensitivity", v: "1 pT/√Hz" },
-          { k: "Bandwidth",   v: "DC – 1 kHz" },
-          { k: "Channels",    v: "32" },
-          { k: "Shielding",   v: "None required" },
+          { k: "Sensitivity", v: "10 pT/√Hz" },
+          { k: "Bandwidth",   v: "DC – 2 kHz" },
+          { k: "GPS-free",    v: "Yes" },
+          { k: "Form factor", v: "Strapdown" },
         ],
         link: { label: "Request datasheet", href: "#contact" },
       },
       {
-        tag: "Molecular",
-        name: "Assay",
+        tag: "Biotech",
+        name: "Helix",
         desc:
-          "Chip-scale nuclear magnetic resonance for in-vitro diagnostics — " +
-          "molecular fingerprints from picoliter samples, optically detected.",
+          "Optically detected NV-NMR and biosensing — label-free magnetic " +
+          "readout of cells and biomolecules from picoliter samples.",
         featured: false,
         specs: [
           { k: "Sample volume", v: "10 pL" },
           { k: "Detection",     v: "Optical" },
-          { k: "Format",        v: "Benchtop" },
+          { k: "Targets",       v: "Cells & biomolecules" },
           { k: "Recalibration", v: "Never" },
         ],
         link: { label: "Request datasheet", href: "#contact" },
@@ -155,35 +157,30 @@ window.SITE = {
     ],
   },
 
-  /* ---- Applications ---- */
+  /* ---- Applications — the three focus markets ---- */
   applications: {
     index: "03",
     kicker: "Where it works",
-    title: "Built for signals classical sensors can't hear.",
+    title: "Three fields. One impossible measurement each.",
     items: [
       {
-        title: "Cardiac screening without the shielded room",
+        title: "Find the fault without destroying the chip",
         body:
-          "Magnetocardiography that fits in a clinic — detecting ischemia and " +
-          "arrhythmia from the heart's magnetic field, no electrodes attached.",
+          "NV-diamond magnetic imaging maps current paths and pinpoints shorts, " +
+          "leakage, and defects buried in packaged devices — non-destructively, " +
+          "at the micron scale.",
       },
       {
-        title: "Functional brain imaging that moves",
+        title: "Hold course when GPS goes dark",
         body:
-          "Wearable MEG opens neural recording to children, motion, and the " +
-          "bedside — far beyond what fixed, cryogenic scanners allow.",
+          "Quantum magnetometry reads the Earth's magnetic anomalies and platform " +
+          "fields to navigate through jamming, spoofing, tunnels, and the deep ocean.",
       },
       {
-        title: "Molecular diagnostics on a chip",
+        title: "Measure biology, magnetically",
         body:
-          "NV-NMR reads chemical fingerprints from picoliter samples, bringing " +
-          "lab-grade molecular analysis to the point of care.",
-      },
-      {
-        title: "Earlier detection, non-invasively",
-        body:
-          "Passive magnetic biosignals mean no radiation, no contrast agents, " +
-          "and no contact — safe to repeat as often as the diagnosis demands.",
+          "Detect cells and label-free biomolecules, and run NMR on picoliter " +
+          "samples — magnetic signals that optical and electrical assays miss.",
       },
     ],
   },
@@ -192,9 +189,10 @@ window.SITE = {
   banner: {
     title: "The signal is there. Classical sensors just can't hear it.",
     text:
-      "The body's magnetic signals are a billion times weaker than a fridge " +
-      "magnet. NV-diamond reads them at room temperature, without a shielded " +
-      "room — turning a physics breakthrough into a diagnostic instrument.",
+      "From currents threading a microchip to magnetic anomalies beneath a " +
+      "moving vehicle, the fields that matter are vanishingly faint. NV-diamond " +
+      "reads them at room temperature — turning a physics breakthrough into a " +
+      "deployable instrument.",
     cta: { label: "Talk to our scientists", href: "#contact" },
   },
 
@@ -202,19 +200,19 @@ window.SITE = {
   company: {
     index: "04",
     kicker: "The company",
-    title: "Physicists and clinicians, building diagnostic instruments.",
+    title: "Physicists and engineers, building quantum instruments.",
     paragraphs: [
-      "DiagnostiQS was founded by nitrogen-vacancy researchers and medical-" +
-        "device engineers who were tired of watching quantum sensing stay " +
-        "locked in the optics lab. We do one thing: NV-diamond sensing for " +
-        "medicine — and we do it exceptionally well.",
+      "DiagnostiQS was founded by nitrogen-vacancy researchers and " +
+        "instrumentation engineers who were tired of watching quantum sensing " +
+        "stay locked in the optics lab. We do one thing — NV-diamond sensing — " +
+        "and we build it into instruments for the fields that need it most.",
       "We're a deeptech company at heart: hard physics, long horizons, and a " +
-        "bias toward building real instruments that earn their place in the clinic.",
+        "bias toward building rugged instruments that work outside a vacuum chamber.",
     ],
     values: [
       { title: "Diamond-native", body: "One platform, mastered — NV-diamond sensing, end to end." },
-      { title: "Clinic-ready",   body: "Engineered for the bedside, not the optics bench." },
-      { title: "Evidence-first", body: "Validated against clinical gold standards, honestly reported." },
+      { title: "Field-ready",    body: "Engineered for the fab floor, the vehicle, and the lab bench." },
+      { title: "Evidence-first", body: "Validated against the measurements that matter, honestly reported." },
     ],
     stats: [
       { value: "2024", label: "Founded" },
@@ -228,14 +226,14 @@ window.SITE = {
   contact: {
     index: "05",
     kicker: "Get in touch",
-    title: "Tell us what you need to detect.",
+    title: "Tell us what you need to measure.",
     sub:
-      "Whether you're running a clinical study or scoping a diagnostic program, " +
-      "our team will respond within two business days.",
+      "Whether you're tracing a fault, scoping a navigation payload, or planning " +
+      "a study, our team will respond within two business days.",
     interests: [
-      "Neural imaging (Cortex)",
-      "Cardiac sensing (Cardia)",
-      "Molecular diagnostics (Assay)",
+      "Semiconductor failure analysis",
+      "GNSS-denied navigation",
+      "Biotech & life sciences",
       "Research collaboration",
       "Something else",
     ],
@@ -243,14 +241,14 @@ window.SITE = {
 
   /* ---- Footer ---- */
   footer: {
-    tagline: "Quantum diagnostics, powered by diamond.",
+    tagline: "Quantum sensing, powered by diamond.",
     columns: [
       {
         title: "Instruments",
         links: [
-          { label: "Cortex — Neural",    href: "#products" },
-          { label: "Cardia — Cardiac",   href: "#products" },
-          { label: "Assay — Molecular",  href: "#products" },
+          { label: "Iris — Semiconductor", href: "#products" },
+          { label: "Vector — Navigation",  href: "#products" },
+          { label: "Helix — Biotech",      href: "#products" },
         ],
       },
       {
