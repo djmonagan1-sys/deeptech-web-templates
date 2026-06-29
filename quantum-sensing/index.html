@@ -8,7 +8,7 @@
     name="description"
     content="DiagnostiQS builds medical instruments around the nitrogen-vacancy center in diamond — detecting the body's faint magnetic signals at room temperature, with no cryogenics and no shielded room."
   />
-  <meta name="theme-color" content="#0a0b0e" />
+  <meta name="theme-color" content="#f4f1e9" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -55,25 +55,43 @@
 
     <!-- ====================== HERO ====================== -->
     <section class="hero">
-      <canvas class="hero__canvas" aria-hidden="true"></canvas>
-      <div class="hero__grid" aria-hidden="true"></div>
       <div class="container hero__inner">
-        <p class="kicker reveal"><span class="kicker__tick"></span><span data-bind="hero.kicker"></span></p>
-        <h1 class="hero__title reveal">
-          <span data-bind="hero.titleTop"></span><br />
-          <span class="signal-text" data-bind="hero.titleAccent"></span>
-        </h1>
-        <p class="hero__lead reveal" data-bind="hero.lead"></p>
-        <div class="hero__actions reveal" id="hero-actions"></div>
-        <dl class="hero__stats reveal" id="hero-stats"></dl>
+        <div class="hero__main">
+          <p class="kicker reveal"><span class="kicker__tick"></span><span data-bind="hero.kicker"></span></p>
+          <h1 class="hero__title reveal">
+            <span data-bind="hero.titleTop"></span>
+            <span class="signal-text" data-bind="hero.titleAccent"></span>
+          </h1>
+          <p class="hero__lead reveal" data-bind="hero.lead"></p>
+          <div class="hero__actions reveal" id="hero-actions"></div>
+        </div>
+        <aside class="hero__aside reveal">
+          <div class="hero__figure" aria-hidden="true">
+            <!-- line-art diamond lattice (NV centre highlighted) -->
+            <svg viewBox="0 0 200 200" class="lattice">
+              <line x1="100" y1="30" x2="40" y2="65"/><line x1="100" y1="30" x2="160" y2="65"/>
+              <line x1="40" y1="65" x2="40" y2="135"/><line x1="160" y1="65" x2="160" y2="135"/>
+              <line x1="40" y1="135" x2="100" y2="170"/><line x1="160" y1="135" x2="100" y2="170"/>
+              <line x1="100" y1="30" x2="100" y2="100"/><line x1="40" y1="65" x2="100" y2="100"/>
+              <line x1="160" y1="65" x2="100" y2="100"/><line x1="40" y1="135" x2="100" y2="100"/>
+              <line x1="160" y1="135" x2="100" y2="100"/><line x1="100" y1="170" x2="100" y2="100"/>
+              <circle cx="100" cy="30" r="7"/><circle cx="40" cy="65" r="7"/><circle cx="160" cy="65" r="7"/>
+              <circle cx="40" cy="135" r="7"/><circle cx="160" cy="135" r="7"/><circle cx="100" cy="170" r="7"/>
+              <circle cx="100" cy="100" r="9" class="nv"/>
+            </svg>
+          </div>
+          <dl class="hero__stats" id="hero-stats"></dl>
+        </aside>
       </div>
     </section>
 
-    <!-- ====================== TRUST ====================== -->
+    <!-- ====================== TRUST (marquee) ====================== -->
     <section class="trust" aria-label="Trusted by">
       <div class="container">
         <p class="trust__label" data-bind="trust.label"></p>
-        <ul class="trust__logos" id="trust-logos"></ul>
+      </div>
+      <div class="marquee" aria-hidden="true">
+        <ul class="marquee__track" id="trust-logos"></ul>
       </div>
     </section>
 

@@ -41,10 +41,12 @@
     var d = get(node.getAttribute("data-head"));
     if (!d) return;
     node.innerHTML =
-      '<p class="kicker"><span class="kicker__idx">[ ' + esc(d.index || "•") + " ]</span>" +
-        esc(d.kicker) + "</p>" +
-      "<h2>" + esc(d.title) + "</h2>" +
-      (d.sub ? '<p class="shead__sub">' + esc(d.sub) + "</p>" : "");
+      '<div class="shead__index">' + esc(d.index || "") + "</div>" +
+      "<div class=\"shead__text\">" +
+        '<p class="kicker"><span class="kicker__tick"></span>' + esc(d.kicker) + "</p>" +
+        "<h2>" + esc(d.title) + "</h2>" +
+        (d.sub ? '<p class="shead__sub">' + esc(d.sub) + "</p>" : "") +
+      "</div>";
   });
 
   /* ---------- nav ---------- */
@@ -81,28 +83,25 @@
     });
   }
 
-  /* ---------- trust logos ---------- */
+  /* ---------- trust marquee (logos rendered twice for a seamless loop) ---------- */
   var trustLogos = $("#trust-logos");
   if (trustLogos && S.trust) {
-    S.trust.logos.forEach(function (t) {
-      trustLogos.appendChild(el("<li>" + esc(t) + "</li>"));
-    });
+    var pass = function () {
+      S.trust.logos.forEach(function (t) {
+        trustLogos.appendChild(el("<li>" + esc(t) + "</li>"));
+      });
+    };
+    pass();
+    pass();
   }
 
   /* ---------- technology cards + steps ---------- */
-  // A few inline icons, picked by card position.
-  var ICONS = [
-    '<svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg>',
-    '<svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>',
-    '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>',
-  ];
   var techCards = $("#tech-cards");
   if (techCards && S.technology) {
-    S.technology.cards.forEach(function (c, i) {
+    S.technology.cards.forEach(function (c) {
       techCards.appendChild(
         el(
-          '<article class="panel card reveal">' +
-            '<div class="card__icon" aria-hidden="true">' + (ICONS[i % ICONS.length]) + "</div>" +
+          '<article class="card reveal">' +
             "<h3>" + esc(c.title) + "</h3><p>" + esc(c.body) + "</p>" +
           "</article>"
         )
@@ -132,7 +131,7 @@
       }).join("");
       productsGrid.appendChild(
         el(
-          '<article class="panel product reveal' + (p.featured ? " product--featured" : "") + '">' +
+          '<article class="product reveal' + (p.featured ? " product--featured" : "") + '">' +
             '<div class="product__tag">' + esc(p.tag) + "</div>" +
             "<h3>" + esc(p.name) + "</h3>" +
             '<p class="product__desc">' + esc(p.desc) + "</p>" +
@@ -151,7 +150,7 @@
       var idx = "A" + String(i + 1).padStart(2, "0");
       appsGrid.appendChild(
         el(
-          '<article class="panel app reveal">' +
+          '<article class="app reveal">' +
             '<span class="app__idx">' + idx + "</span>" +
             "<h3>" + esc(a.title) + "</h3><p>" + esc(a.body) + "</p>" +
           "</article>"
@@ -278,69 +277,5 @@
       }
       form.reset();
     });
-  }
-
-  /* hero particle field — a "quantum lattice" of square nodes */
-  var canvas = $(".hero__canvas");
-  if (canvas && !prefersReducedMotion) {
-    var ctx = canvas.getContext("2d");
-    var width, height, dpr, nodes, raf, running = true;
-    var NODE_BASE = 56, LINK_DIST = 130;
-
-    function resize() {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      width = canvas.offsetWidth; height = canvas.offsetHeight;
-      canvas.width = width * dpr; canvas.height = height * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      seed();
-    }
-    function seed() {
-      var count = Math.round(NODE_BASE * Math.min(1, (width * height) / (1280 * 720)));
-      nodes = [];
-      for (var i = 0; i < Math.max(26, count); i++) {
-        nodes.push({
-          x: Math.random() * width, y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.32, vy: (Math.random() - 0.5) * 0.32,
-          s: Math.random() * 2 + 1.4,
-        });
-      }
-    }
-    function step() {
-      ctx.clearRect(0, 0, width, height);
-      for (var i = 0; i < nodes.length; i++) {
-        var n = nodes[i];
-        n.x += n.vx; n.y += n.vy;
-        if (n.x < 0 || n.x > width) n.vx *= -1;
-        if (n.y < 0 || n.y > height) n.vy *= -1;
-        // square node — reads as a lattice point, not a generic dot
-        ctx.fillStyle = "rgba(84, 104, 255, 0.85)";
-        ctx.fillRect(n.x - n.s / 2, n.y - n.s / 2, n.s, n.s);
-        for (var j = i + 1; j < nodes.length; j++) {
-          var m = nodes[j];
-          var dx = n.x - m.x, dy = n.y - m.y, dist = Math.hypot(dx, dy);
-          if (dist < LINK_DIST) {
-            ctx.strokeStyle = "rgba(84, 104, 255, " + (1 - dist / LINK_DIST) * 0.26 + ")";
-            ctx.lineWidth = 0.6;
-            ctx.beginPath(); ctx.moveTo(n.x, n.y); ctx.lineTo(m.x, m.y); ctx.stroke();
-          }
-        }
-      }
-      if (running) raf = requestAnimationFrame(step);
-    }
-    var heroObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        running = entry.isIntersecting;
-        if (running) { raf = requestAnimationFrame(step); }
-        else { cancelAnimationFrame(raf); }
-      });
-    }, { threshold: 0 });
-
-    var resizeTimer;
-    window.addEventListener("resize", function () {
-      clearTimeout(resizeTimer); resizeTimer = setTimeout(resize, 150);
-    });
-    resize();
-    heroObs.observe(canvas);
-    raf = requestAnimationFrame(step);
   }
 })();

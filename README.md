@@ -29,18 +29,19 @@ A landing page for a fictional NV-diamond quantum-diagnostics company,
 - **Edit everything in one file** — all words, numbers, links, and lists live
   in [`content.js`](./quantum-sensing/content.js). Change it, refresh, done.
   No HTML editing, no build step (see *Editing the content* below).
-- A distinctive **lab-instrument / blueprint** aesthetic: sharp geometry,
-  hairline engineering grid, notched buttons, corner-tick panels, and
-  monospace technical labels — not a generic gradient SaaS look
-- Animated hero with a lightweight `<canvas>` "quantum lattice" of square
-  nodes (auto-pauses off-screen and respects `prefers-reduced-motion`)
-- Reveal-on-scroll animations via `IntersectionObserver`
-- Sections: hero, trust bar, technology, how-it-works, products with spec
-  tables, applications, company, and a contact form
+- A distinctive **clinical-print / scientific-journal** aesthetic: warm paper
+  background, ink text, a single bold vermilion accent, paper-grain texture,
+  editorial serif headlines, oversized section index numerals, and a broken
+  (asymmetric) grid — deliberately not a dark-mode gradient SaaS look
+- Asymmetric editorial hero with an animated line-art diamond-lattice figure
+  (NV centre highlighted) and a spec-sheet stat list
+- A scrolling partner **marquee**, reveal-on-scroll via `IntersectionObserver`
+- Sections: hero, trust marquee, technology, how-it-works, instruments with
+  spec tables, applications, company, and a contact form
 - Accessible: skip link, semantic landmarks, keyboard-friendly nav,
-  reduced-motion support
-- Type system: **Bricolage Grotesque** (display) + **IBM Plex Sans** (body) +
-  **IBM Plex Mono** (labels), loaded from Google Fonts
+  reduced-motion support (marquee + animations disable under `prefers-reduced-motion`)
+- Type system: **Fraunces** (editorial serif display) + **IBM Plex Sans**
+  (body) + **IBM Plex Mono** (labels), loaded from Google Fonts
 
 ### Run it locally
 
