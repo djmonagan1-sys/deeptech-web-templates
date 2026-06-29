@@ -29,9 +29,9 @@ A landing page for a fictional NV-diamond quantum-diagnostics company,
 - **Edit everything in one file** — all words, numbers, links, and lists live
   in [`content.js`](./quantum-sensing/content.js). Change it, refresh, done.
   No HTML editing, no build step (see *Editing the content* below).
-- A distinctive **dark editorial** aesthetic: near-black background, light
-  text, a bold diamond-blue accent, fine grain texture, editorial serif
-  headlines, oversized section index numerals, and a broken (asymmetric) grid
+- A clean, professional dark aesthetic: near-black background, light text, a
+  single restrained blue accent, generous whitespace, and a single product
+  presented as a feature with a spec sheet — plain, factual copy throughout
 - Asymmetric editorial hero with an animated line-art diamond-lattice figure
   (NV centre highlighted) and a spec-sheet stat list
 - A scrolling partner **marquee**, reveal-on-scroll via `IntersectionObserver`

@@ -8,14 +8,13 @@
    Tips:
    • Text in "quotes" — just change what's between the quotes.
    • Lists are wrapped in [ square brackets ]; copy a { ... } block to add
-     another card / product / stat, or delete one to remove it.
+     another card / stat, or delete one to remove it.
    • Keep the commas. Each item ends with a comma.
    • Colors and fonts live in css/styles.css under ":root" (see README).
    ========================================================================= */
 
 window.SITE = {
   /* ---- Brand (appears in the header + footer) ---- */
-  /* Renders as name + accent: "Diagnosti" + "QS" = DiagnostiQS */
   brand: { name: "Diagnosti", accent: "QS" },
 
   /* ---- Top navigation ---- */
@@ -25,97 +24,96 @@ window.SITE = {
     { label: "Applications", href: "#applications" },
     { label: "Company",      href: "#company" },
   ],
-  navCta: { label: "Request a demo", href: "#contact" },
+  navCta: { label: "Contact", href: "#contact" },
 
-  /* ---- Hero (the big first screen) ---- */
+  /* ---- Hero ---- */
   hero: {
-    kicker: "NV-diamond quantum sensing — est. 2024",
-    titleTop: "Quantum sensing,",
-    titleAccent: "powered by diamond.",
+    kicker: "Diamond quantum magnetometry",
+    titleTop: "Diamond quantum",
+    titleAccent: "magnetometers.",
     lead:
-      "DiagnostiQS builds instruments around a single quantum sensor — the " +
-      "nitrogen-vacancy center in diamond. One platform measures magnetic " +
-      "fields with extraordinary precision, at room temperature, across " +
-      "semiconductor failure analysis, GNSS-denied navigation, and the life sciences.",
+      "DiagnostiQS develops quantum magnetometers based on nitrogen-vacancy " +
+      "centres in diamond. A single instrument measures magnetic fields at " +
+      "room temperature, for semiconductor failure analysis, GNSS-denied " +
+      "navigation, and life sciences.",
     actions: [
-      { label: "See the product", href: "#products",   style: "primary" },
-      { label: "How it works",        href: "#technology", style: "ghost" },
+      { label: "View the product", href: "#products",   style: "primary" },
+      { label: "Contact us",       href: "#contact",    style: "ghost" },
     ],
     stats: [
       { value: "1",   unit: "pT/√Hz", label: "Magnetic sensitivity" },
-      { value: "22",  unit: "°C",     label: "Operates at room temp — no cryogens" },
+      { value: "22",  unit: "°C",     label: "Operating temperature" },
       { value: "<1",  unit: "µm",     label: "Imaging resolution" },
     ],
   },
 
   /* ---- Trust bar ---- */
   trust: {
-    label: "Working with semiconductor fabs, defense programs, and life-science labs",
+    label: "Working with semiconductor, defence, and life-science organisations",
     logos: [
-      "Semiconductor Fabs",
-      "Defense & Aerospace",
-      "Pharma & Biotech",
+      "Semiconductor",
+      "Defence & Aerospace",
+      "Life Sciences",
       "National Labs",
       "Autonomous Systems",
     ],
   },
 
-  /* ---- Technology — all NV-diamond ---- */
+  /* ---- Technology ---- */
   technology: {
     index: "01",
-    kicker: "The technology",
-    title: "One sensor: the nitrogen-vacancy center in diamond.",
+    kicker: "Technology",
+    title: "The nitrogen-vacancy centre in diamond.",
     sub:
-      "We engineer atomic defects into synthetic diamond. Each defect is a " +
-      "quantum sensor whose spin shifts in the presence of a magnetic field — " +
-      "and because the reference is an atom, not a manufactured part, it never " +
-      "drifts and never needs recalibration.",
+      "A nitrogen-vacancy (NV) centre is an atomic defect in diamond whose " +
+      "electron spin shifts measurably in a magnetic field. Because the " +
+      "reference is an atom, the sensor does not drift and does not require " +
+      "recalibration.",
     cards: [
       {
-        title: "Atomic defects, engineered",
+        title: "Atomic defects in diamond",
         body:
-          "A nitrogen atom beside a vacancy in the carbon lattice forms a " +
-          "single quantum system. We grow diamond with these centers placed " +
-          "by the billion for maximum signal.",
+          "A nitrogen atom next to a vacancy in the carbon lattice forms a " +
+          "single quantum system. Diamond is grown with these centres placed " +
+          "in high density for signal.",
       },
       {
-        title: "Room-temperature & solid-state",
+        title: "Room-temperature operation",
         body:
-          "No liquid helium, no vacuum chamber, no magnetic shielding. The " +
-          "sensor is a chip of diamond — rugged enough for the fab floor, a " +
-          "moving vehicle, or a benchtop instrument.",
+          "No liquid helium, vacuum chamber, or magnetic shielding. The sensing " +
+          "element is a chip of diamond, suitable for the lab, the field, or an " +
+          "instrument enclosure.",
       },
       {
-        title: "Optical spin readout",
+        title: "Optical readout",
         body:
-          "A green laser initializes the spin; microwaves probe it; the red " +
-          "fluorescence it emits encodes the magnetic field. We read light, " +
-          "not voltage — so there is nothing to drift.",
+          "A green laser initialises the spin, microwaves probe it, and the red " +
+          "fluorescence reports the magnetic field. The measurement is optical, " +
+          "not electrical.",
       },
     ],
     steps: [
-      { title: "Initialize", body: "A green laser polarizes the NV centers into a known spin state." },
+      { title: "Initialise",  body: "A green laser prepares the NV centres in a known spin state." },
       { title: "Interrogate", body: "Microwaves drive the spin; the magnetic field shifts its resonance." },
-      { title: "Read out",    body: "Red fluorescence intensity reports the spin state, optically." },
-      { title: "Deliver",     body: "Calibrated magnetic-field values, streamed continuously and drift-free." },
+      { title: "Read out",    body: "Fluorescence intensity reports the spin state optically." },
+      { title: "Output",      body: "Calibrated magnetic-field values, streamed continuously." },
     ],
   },
 
-  /* ---- The product — one diamond quantum magnetometer ---- */
+  /* ---- Product (single instrument) ---- */
   products: {
     index: "02",
-    kicker: "The product",
-    title: "One instrument. Every hard magnetic measurement.",
+    kicker: "Product",
+    title: "The Vector magnetometer.",
     items: [
       {
         tag: "Diamond quantum magnetometer",
         name: "Vector",
         desc:
-          "Vector is a 3-axis diamond quantum magnetometer built on " +
-          "nitrogen-vacancy centers. One rugged, room-temperature instrument — " +
-          "sensitive enough to image current inside a microchip, stable enough " +
-          "to navigate without GPS, and clean enough to read the magnetic " +
-          "signature of living cells.",
+          "Vector is a three-axis diamond quantum magnetometer based on " +
+          "nitrogen-vacancy centres. It operates at room temperature without " +
+          "shielding or cryogenics, and is configured for current imaging, " +
+          "navigation, or laboratory use.",
         featured: true,
         specs: [
           { k: "Sensitivity",        v: "1 pT/√Hz" },
@@ -123,74 +121,69 @@ window.SITE = {
           { k: "Bandwidth",          v: "DC – 2 kHz" },
           { k: "Imaging resolution", v: "< 1 µm" },
           { k: "Operation",          v: "Room temperature" },
-          { k: "Reference",          v: "Atomic — drift-free" },
+          { k: "Reference",          v: "Atomic, drift-free" },
         ],
         link: { label: "Request datasheet", href: "#contact" },
       },
     ],
   },
 
-  /* ---- Applications — the three focus markets ---- */
+  /* ---- Applications ---- */
   applications: {
     index: "03",
-    kicker: "Where it works",
-    title: "Three fields. One impossible measurement each.",
+    kicker: "Applications",
+    title: "Where Vector is used.",
     items: [
       {
-        title: "Find the fault without destroying the chip",
+        title: "Semiconductor failure analysis",
         body:
-          "NV-diamond magnetic imaging maps current paths and pinpoints shorts, " +
-          "leakage, and defects buried in packaged devices — non-destructively, " +
-          "at the micron scale.",
+          "Magnetic imaging maps current flow inside packaged chips to locate " +
+          "shorts, leakage, and defects without removing the package.",
       },
       {
-        title: "Hold course when GPS goes dark",
+        title: "GNSS-denied navigation",
         body:
-          "Quantum magnetometry reads the Earth's magnetic anomalies and platform " +
-          "fields to navigate through jamming, spoofing, tunnels, and the deep ocean.",
+          "Magnetic-anomaly and inertial navigation maintain position when GNSS " +
+          "is jammed, spoofed, or unavailable.",
       },
       {
-        title: "Measure biology, magnetically",
+        title: "Life sciences",
         body:
-          "Detect cells and label-free biomolecules, and run NMR on picoliter " +
-          "samples — magnetic signals that optical and electrical assays miss.",
+          "Magnetic detection of cells and biomolecules, and NV-NMR from small " +
+          "sample volumes.",
       },
     ],
   },
 
-  /* ---- Mid-page banner ---- */
+  /* ---- Call-to-action band ---- */
   banner: {
-    title: "The signal is there. Classical sensors just can't hear it.",
+    title: "Request a datasheet or a demonstration.",
     text:
-      "From currents threading a microchip to magnetic anomalies beneath a " +
-      "moving vehicle, the fields that matter are vanishingly faint. NV-diamond " +
-      "reads them at room temperature — turning a physics breakthrough into a " +
-      "deployable instrument.",
-    cta: { label: "Talk to our scientists", href: "#contact" },
+      "Tell us about your measurement and we will follow up within two business days.",
+    cta: { label: "Contact us", href: "#contact" },
   },
 
   /* ---- Company ---- */
   company: {
     index: "04",
-    kicker: "The company",
-    title: "Physicists and engineers, building quantum instruments.",
+    kicker: "Company",
+    title: "About DiagnostiQS.",
     paragraphs: [
-      "DiagnostiQS was founded by nitrogen-vacancy researchers and " +
-        "instrumentation engineers who were tired of watching quantum sensing " +
-        "stay locked in the optics lab. We do one thing — NV-diamond sensing — " +
-        "and we build it into instruments for the fields that need it most.",
-      "We're a deeptech company at heart: hard physics, long horizons, and a " +
-        "bias toward building rugged instruments that work outside a vacuum chamber.",
+      "DiagnostiQS develops quantum magnetometers based on nitrogen-vacancy " +
+        "centres in diamond. The company was founded in 2024 by NV-diamond " +
+        "researchers and instrumentation engineers.",
+      "We focus on a single sensing technology and build it into instruments " +
+        "for semiconductor, navigation, and life-science applications.",
     ],
     values: [
-      { title: "Diamond-native", body: "One platform, mastered — NV-diamond sensing, end to end." },
-      { title: "Field-ready",    body: "Engineered for the fab floor, the vehicle, and the lab bench." },
-      { title: "Evidence-first", body: "Validated against the measurements that matter, honestly reported." },
+      { title: "Single platform",   body: "One sensing technology, developed end to end." },
+      { title: "Room-temperature",  body: "No cryogenics or magnetic shielding required." },
+      { title: "Documented",        body: "Published specifications and supported integration." },
     ],
     stats: [
       { value: "2024", label: "Founded" },
-      { value: "35+",  label: "Scientists & engineers" },
-      { value: "$42M", label: "Series A raised" },
+      { value: "35+",  label: "Team" },
+      { value: "$42M", label: "Series A" },
       { value: "9",    label: "Patents filed" },
     ],
   },
@@ -198,23 +191,22 @@ window.SITE = {
   /* ---- Contact ---- */
   contact: {
     index: "05",
-    kicker: "Get in touch",
-    title: "Tell us what you need to measure.",
+    kicker: "Contact",
+    title: "Contact us.",
     sub:
-      "Whether you're tracing a fault, scoping a navigation payload, or planning " +
-      "a study, our team will respond within two business days.",
+      "Request a datasheet, ask a technical question, or arrange a demonstration.",
     interests: [
       "Semiconductor failure analysis",
       "GNSS-denied navigation",
-      "Biotech & life sciences",
+      "Life sciences",
       "Research collaboration",
-      "Something else",
+      "Other",
     ],
   },
 
   /* ---- Footer ---- */
   footer: {
-    tagline: "Quantum sensing, powered by diamond.",
+    tagline: "Diamond quantum magnetometers.",
     columns: [
       {
         title: "Product",
@@ -227,13 +219,13 @@ window.SITE = {
       {
         title: "Company",
         links: [
-          { label: "About",        href: "#company" },
-          { label: "Applications", href: "#applications" },
-          { label: "Contact",      href: "#contact" },
+          { label: "About",      href: "#company" },
+          { label: "Technology", href: "#technology" },
+          { label: "Contact",    href: "#contact" },
         ],
       },
       {
-        title: "Connect",
+        title: "Contact",
         links: [
           { label: "Careers",  href: "#contact" },
           { label: "Press",    href: "#contact" },
